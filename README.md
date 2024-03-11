@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Тестовое задание в рамках обучения в skypro.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Разработанный функционал
 
-## Available Scripts
+Тестовое задание выполнено c использованием библиотеки React.
+Приложении позволяет:
 
-In the project directory, you can run:
+-   осуществлять поиск пользователей платформы GitHub логину. (поиск происходит за счет использования API GitHub https://api.github.com/search);
+- сортировать список отображаемых пользователей по возрастанию/убыванию по количеству у них публичных репозиториев;
 
-### `npm start`
+Если фильтрация по репозиториям не активирована, отображение происходит по лучшему совпадению параметра поиска с username пользователя.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+В приложении осуществлена пагинация по страницам с результатами поиска (на одной странице отображается до 30 пользователей).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+При клике на кнопку "Показать больше информации" появляется блок с подробной информацией о пользователе, а именно:  
+- логин;
+- полное;
+- информация "о себе";
+- местоположение;
+- количество репозиториев;
+- количество подписчиков;
+также появляется ссылка для перехода на страницу GitHub пользователя.
 
-### `npm test`
+## Технический стек:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ReactJs;  
+Styled-components;
+Redax;
+RTK Query.  
 
-### `npm run build`
+## Установка и запуск проекта:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Необходимо клонировать репозиторий: git repo clone v-sivozhelezov/search-users;
+Установить заисимости: npm install;  
+Запустить приложение: npm start;  
+Открыть http://localhost:3000, чтобы просмотреть приложение.

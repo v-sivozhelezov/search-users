@@ -24,9 +24,9 @@
 ## Технический стек:
 
 ReactJs;  
-Styled-components;
-Redax;
-RTK Query.  
+Styled-components;  
+Redax;  
+RTK Query.    
 
 ## Установка и запуск проекта:
 

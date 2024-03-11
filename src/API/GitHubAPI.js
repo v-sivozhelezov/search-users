@@ -7,9 +7,13 @@ export const GitHubAPI = createApi({
     }),
     endpoints: (build) => ({
         getResultsSearch: build.query({
-            query: ({ searchQuery, filteringByRepositories: sort }) => ({
+            query: ({
+                searchQuery,
+                filteringByRepositories: sort,
+                idPage,
+            }) => ({
                 method: 'GET',
-                url: `search/users?q=${searchQuery}${sort ? '+sort:repositories' : ''}`,
+                url: `search/users?q=${searchQuery}${sort ? '+sort:repositories' : ''}&page=${idPage}`,
             }),
         }),
         getUserInfo: build.query({

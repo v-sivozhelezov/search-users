@@ -4,7 +4,6 @@ import * as S from './CardUser.styles';
 export default function CardUser(props) {
     const { user, handleCloseCardUser } = props;
     const { data: userInfo, isLoading } = useGetUserInfoQuery(user?.login);
-    console.log(userInfo);
 
     return (
         <S.CardUserBox>

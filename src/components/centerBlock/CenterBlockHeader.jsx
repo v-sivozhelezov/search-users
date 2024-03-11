@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -12,13 +11,12 @@ import {
 } from '../../redux/slices/searchParamsSlice';
 
 export default function CenterBlockHeader(props) {
-    const { searchQuery, filteringByRepositories } =
+    const { searchQuery, filteringByRepositories, ascendingFilter } =
         useSelector(getSearchParams);
     const [searchText, setSearchText] = useState(searchQuery);
     const [error, setError] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    console.log(searchText);
 
     const handleExecuteSearch = () => {
         if (!searchText) {
@@ -26,8 +24,10 @@ export default function CenterBlockHeader(props) {
             return;
         }
         setError('');
+        localStorage.setItem('searchQuery', searchText);
+        localStorage.setItem('idPage', 1);
         dispatch(setSearchQuery(searchText));
-        navigate('/results');
+        navigate('/results/1');
     };
 
     const handleKeyDown = (event) => {
@@ -77,8 +77,13 @@ export default function CenterBlockHeader(props) {
                 <div>
                     <input
                         id="html"
+                        checked={filteringByRepositories}
                         type="checkbox"
                         onChange={(event) => {
+                            localStorage.setItem(
+                                'filteringByRepositories',
+                                event.target.checked,
+                            );
                             dispatch(
                                 setFilteringByRepositories(
                                     event.target.checked,
@@ -97,10 +102,15 @@ export default function CenterBlockHeader(props) {
                                 type="radio"
                                 id="decreasing"
                                 name="sort"
-                                checked
-                                onClick={() =>
-                                    dispatch(setAscendingFilter(false))
-                                }
+                                readOnly
+                                checked={!ascendingFilter}
+                                onClick={() => {
+                                    localStorage.setItem(
+                                        'ascendingFilter',
+                                        false,
+                                    );
+                                    dispatch(setAscendingFilter(false));
+                                }}
                             />
                             <S.SearchSortLabel htmlFor="decreasing">
                                 по убыванию
@@ -110,10 +120,16 @@ export default function CenterBlockHeader(props) {
                             <input
                                 type="radio"
                                 id="increase"
+                                readOnly
+                                checked={ascendingFilter}
                                 name="sort"
-                                onClick={() =>
-                                    dispatch(setAscendingFilter(true))
-                                }
+                                onClick={() => {
+                                    localStorage.setItem(
+                                        'ascendingFilter',
+                                        true,
+                                    );
+                                    dispatch(setAscendingFilter(true));
+                                }}
                             />
                             <S.SearchSortLabel htmlFor="increase">
                                 по возрастанию

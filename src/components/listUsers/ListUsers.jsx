@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getSearchParams } from '../../redux/slices/searchParamsSlice';
-import * as S from './ListUsers.styles';
 import CardUser from '../cardUser/CardUser';
+import * as S from './ListUsers.styles';
 
 export default function ListUsers(props) {
     const users = props?.users?.items;
